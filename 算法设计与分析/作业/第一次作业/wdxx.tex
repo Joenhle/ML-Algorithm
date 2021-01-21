@@ -1,0 +1,599 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{ctexart}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{header-n0}{%
+\paragraph{1.COVID-19 Risk Detection}\label{header-n0}}
+
+\hypertarget{header-n2}{%
+\subparagraph{(a)}\label{header-n2}}
+
+伪代码
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{输入:}
+\NormalTok{A:数组}
+\NormalTok{  A[i][}\DecValTok{0}\NormalTok{]表示第i个人进店的时间}
+\NormalTok{  A[i][}\DecValTok{1}\NormalTok{]表示第i个人离店的时间}
+\NormalTok{Ci:第Ci个人被判为确诊}
+\NormalTok{输出:有可能被感染的人的数组}
+  
+\FloatTok{1.}\ErrorTok{Get\_Potencial\_Inflicted\_Customers}\NormalTok{(A,Ci)}
+\FloatTok{2.}\NormalTok{	out = []}
+\FloatTok{3.}\NormalTok{  k = }\DecValTok{0} 
+\FloatTok{4.}  \ControlFlowTok{for}\NormalTok{ i = }\DecValTok{0}\NormalTok{ to A.length{-}}\DecValTok{1}\NormalTok{:}
+\FloatTok{5.}    \ControlFlowTok{if}\NormalTok{ A[i][}\DecValTok{0}\NormalTok{] \textgreater{} A[Ci][}\DecValTok{1}\NormalTok{] or A[i][}\DecValTok{1}\NormalTok{]\textless{}A[Ci][}\DecValTok{0}\NormalTok{] or i = Ci:}
+\FloatTok{6.}       \ControlFlowTok{continue}
+\FloatTok{7.}    \ControlFlowTok{else}
+\FloatTok{8.}\NormalTok{       out[k++]=i}
+\FloatTok{9.}  \ControlFlowTok{return}\NormalTok{ out}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+一次遍历，时间复杂度为\(O(N)\)
+\end{quote}
+
+\hypertarget{header-n7}{%
+\subparagraph{(b)}\label{header-n7}}
+
+伪代码
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{输入:}
+\NormalTok{A:数组}
+\NormalTok{  A[i][}\DecValTok{0}\NormalTok{]表示第i个人进店的时间}
+\NormalTok{  A[i][}\DecValTok{1}\NormalTok{]表示第i个人离店的时间}
+\NormalTok{输出:在同一时间出现在店里的客人的有序对数}
+
+\DecValTok{1.}\NormalTok{ Get\_Same\_Time\_Pairs(A)}
+\DecValTok{2.}\NormalTok{   answer = }\DecValTok{0}
+\DecValTok{3.}   \KeywordTok{for}\NormalTok{ i = }\DecValTok{0} \KeywordTok{to}\NormalTok{ A.length}\DecValTok{{-}1}\NormalTok{:}
+\DecValTok{4.}\NormalTok{  	 temp = }\DecValTok{0}
+\DecValTok{5.}     \KeywordTok{for}\NormalTok{ j = i + }\DecValTok{1} \KeywordTok{to}\NormalTok{ A.length}\DecValTok{{-}1}\NormalTok{:}
+\DecValTok{6.}    	 \KeywordTok{if}\NormalTok{ A[i][}\DecValTok{0}\NormalTok{] \textgreater{} A[j][}\DecValTok{1}\NormalTok{] }\KeywordTok{or}\NormalTok{ A[i][}\DecValTok{1}\NormalTok{] \textless{} A[j][}\DecValTok{0}\NormalTok{]:}
+\DecValTok{7.}         \KeywordTok{continue}
+\DecValTok{8.}       \KeywordTok{else}
+\DecValTok{9.}\NormalTok{         temp++}
+\DecValTok{10.}\NormalTok{    answer = answer + temp}
+\DecValTok{11.}\NormalTok{  return answer}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+两次遍历，时间复杂度为\(O(N^2)\)
+\end{quote}
+
+\hypertarget{header-n12}{%
+\subparagraph{(c)}\label{header-n12}}
+
+伪代码:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{输入:}
+\NormalTok{A:数组}
+\NormalTok{  A[i][}\DecValTok{0}\NormalTok{]表示第i个人进店的时间}
+\NormalTok{  A[i][}\DecValTok{1}\NormalTok{]表示第i个人离店的时间}
+\NormalTok{输出:在同一时间出现在店里的客人的有序对数}
+  
+\FloatTok{1.}\NormalTok{ Get\_Same\_Time\_Pairs(A)}
+\FloatTok{2.}\NormalTok{ 	Quick\_Sort(A,}\DecValTok{0}\NormalTok{,A.length{-}}\DecValTok{1}\NormalTok{)}
+\FloatTok{3.}\NormalTok{   sum = }\DecValTok{0}
+\FloatTok{4.}   \ControlFlowTok{for}\NormalTok{ i = }\DecValTok{0}\NormalTok{ to A.length{-}}\DecValTok{1}
+\FloatTok{5.}\NormalTok{     index = Binary\_Search(A,A[i][}\DecValTok{1}\NormalTok{])}
+\FloatTok{6.}\NormalTok{     sum += index {-} }\DecValTok{1}
+\FloatTok{7.}   \ControlFlowTok{return}\NormalTok{ sum}
+  
+
+\FloatTok{1.}\NormalTok{ Binary\_Search(arr,target)}\CommentTok{//二分查找小于target的最大值}
+\FloatTok{2.}\NormalTok{   left = }\DecValTok{0}
+\FloatTok{3.}\NormalTok{   right = arr.length{-}}\DecValTok{1}
+\FloatTok{4.}   \ControlFlowTok{while}\NormalTok{ left \textless{} right}
+\FloatTok{5.}\NormalTok{     middle = left + (right {-} left)/}\DecValTok{2}
+\FloatTok{6.}     \ControlFlowTok{if}\NormalTok{ arr[middle] = target}
+\FloatTok{7.}       \ControlFlowTok{return}\NormalTok{ middle}
+\FloatTok{8.}     \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ arr[middle] \textless{} target}
+\FloatTok{9.}\NormalTok{       left = middle}
+\FloatTok{10.}    \ControlFlowTok{else}
+\FloatTok{11.}\NormalTok{      right = middle {-} }\DecValTok{1}
+\FloatTok{12.}  \ControlFlowTok{return}\NormalTok{ left}
+      
+\FloatTok{1.}\ErrorTok{Quick\_Sort}\NormalTok{(A,p,r)}\CommentTok{//快排}
+\FloatTok{2.}	\ControlFlowTok{if}\NormalTok{ p \textless{} r}
+\FloatTok{3.}\NormalTok{    q = Partition(A,p,r)}
+\FloatTok{4.}\NormalTok{    Quick\_Sort(A,p,q{-}}\DecValTok{1}\NormalTok{)}
+\FloatTok{5.}\NormalTok{    Quick\_Sort(A,q+}\DecValTok{1}\NormalTok{,r)}
+    
+\FloatTok{1.}\ErrorTok{Partition}\NormalTok{(A,p,r)}
+\FloatTok{2.}\NormalTok{  x = A[r]}
+\FloatTok{3.}\NormalTok{  i = p {-} }\DecValTok{1}
+\FloatTok{4.}  \ControlFlowTok{for}\NormalTok{ j = p to r {-} }\DecValTok{1}
+\FloatTok{5.}    \ControlFlowTok{if}\NormalTok{ A[j] \textless{}= x}
+\FloatTok{6.}\NormalTok{      i = i + }\DecValTok{1}
+\FloatTok{7.}\NormalTok{      exchange A[i] with A[j]}
+\FloatTok{8.}\NormalTok{  exchange A[i+}\DecValTok{1}\NormalTok{] with A[r]}
+\FloatTok{9.}  \ControlFlowTok{return}\NormalTok{ i + }\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  首先将A数组根据进店的时间快速排序(\(O(nlogn)\))
+\item
+  遍历A到第i个人，利用A数组二分查找进店时间在A{[}i{]}{[}1{]}前的人(二分:\(O(logn)\))
+\item
+  每次遍历结果加上返回的最大的离店时间小于A{[}i{]}{[}1{]}的客人的序号减去i
+\item
+  总的时间复杂度\(O(nlogn)+nO(logn)=O(nlogn)\)
+\end{enumerate}
+\end{quote}
+
+\hypertarget{header-n26}{%
+\paragraph{2.Proof of correctness}\label{header-n26}}
+
+初始化:
+
+因为第一次循环前i=0,数组A为空(即认为排好序)
+
+保持:
+
+每一次遍历在A{[}i{]}...A{[}length{]}中选出最小值与A{[}i{]}交换，因为A{[}1{]}...A{[}i-1{]}已经排好序，且A{[}i{]}比它们都大，所以A{[}1{]}...A{[}i{]}也是排好序的
+
+终止:
+
+当i=A.length+1时大于A.length，循环结束，且已经将A{[}1{]}...A{[}A.length{]}排好序
+
+\hypertarget{header-n34}{%
+\paragraph{3.Needlessly complicating the issue}\label{header-n34}}
+
+\hypertarget{header-n35}{%
+\subparagraph{(a)}\label{header-n35}}
+
+伪代码
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{1.}\BuiltInTok{F}\ErrorTok{ind\_Minimun}\NormalTok{(A)}
+\FloatTok{2.}\NormalTok{  min = A[}\DecValTok{0}\NormalTok{]}
+\FloatTok{3.}  \ControlFlowTok{for}\NormalTok{ i = }\DecValTok{1}\NormalTok{ to A.length{-}}\DecValTok{1}
+\FloatTok{4.}    \ControlFlowTok{if}\NormalTok{ A[i] \textless{} min}
+\FloatTok{5.}\NormalTok{      min = A[i]}
+\FloatTok{6.}  \ControlFlowTok{return}\NormalTok{ min}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+一次遍历，记录最小值，时间复杂度为\(O(n)\)
+\end{quote}
+
+\hypertarget{header-n40}{%
+\subparagraph{(b)}\label{header-n40}}
+
+因为要从n个数中选出最小的数，所以每个数至少需要参与一次比较，所以无论什么算法都必须至少n次操作
+
+\hypertarget{header-n42}{%
+\subparagraph{(c)}\label{header-n42}}
+ 
+{\qquad }
+
+1.
+
+A{[}0{]}
+
+2.
+
+findMinimum(A)的功能就是找到A数组中的最小值
+
+通过将0...n分为\(A_1\),\(A_2\)两个数组，通过findMinimum(\(A_1\))和findMinimum(\(A_2\))分别找出\(A_1,A_2\)中的最小值\(a_1,a_2\)，然后返回\(min(a_1,a_2)\)，就能返回A的最小值，中途过程是采用的递归的方式，直到数组中只有1个数时才停止递归，直接返回这个数。
+
+\hypertarget{header-n49}{%
+\subparagraph{(d)}\label{header-n49}}
+
+a题算法中，一共需要n-1次比较，最好情况下1次赋值，最坏情况n次赋值
+
+b题算法中，若\(n=2^k\)，则需\(1+2+4+...\frac{n}{2}=n-1\)次比较，每一次递归调用函数除了叶子节点以外都需要2次赋值，共\(2(1+2+4+...+\frac{n}{2})\)次赋值
+
+\hypertarget{header-n53}{%
+\paragraph{4.Recursive local-minmum-finding}\label{header-n53}}
+
+\hypertarget{header-n54}{%
+\subparagraph{(a)}\label{header-n54}}
+
+(1)
+
+伪代码
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{1.}\NormalTok{ Find\_A\_Min\_Loc(A)}
+\FloatTok{2.}   \ControlFlowTok{if}\NormalTok{ A.length }\OperatorTok{=} \DecValTok{1}
+\FloatTok{3.}     \ControlFlowTok{return}\NormalTok{ A[}\DecValTok{0}\NormalTok{]}
+\FloatTok{4.}   \ControlFlowTok{if}\NormalTok{ A.length }\OperatorTok{=} \DecValTok{2}
+\FloatTok{5.}     \ControlFlowTok{return} \BuiltInTok{min}\NormalTok{(A[}\DecValTok{0}\NormalTok{],A[}\DecValTok{1}\NormalTok{])}
+\FloatTok{6.}\NormalTok{   mid }\OperatorTok{=}\NormalTok{ A.length}\OperatorTok{/}\DecValTok{2}
+\FloatTok{7.}   \ControlFlowTok{if}\NormalTok{ A[mid] }\OperatorTok{\textless{}}\NormalTok{ A[mid}\OperatorTok{{-}}\DecValTok{1}\NormalTok{] }\KeywordTok{and}\NormalTok{ A[mid] }\OperatorTok{\textless{}}\NormalTok{ A[mid}\OperatorTok{+}\DecValTok{1}\NormalTok{]}
+\FloatTok{8.}   	\ControlFlowTok{return}\NormalTok{ A[mid]}
+\FloatTok{9.}   \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ A[mid] }\OperatorTok{\textgreater{}}\NormalTok{ A[mid}\OperatorTok{{-}}\DecValTok{1}\NormalTok{]}
+\FloatTok{10.}  	\ControlFlowTok{return}\NormalTok{ Find\_A\_Min\_Loc(A[}\DecValTok{0}\NormalTok{:mid}\OperatorTok{{-}}\DecValTok{1}\NormalTok{])}
+\FloatTok{11.}  \ControlFlowTok{else}
+\FloatTok{12.}  	\ControlFlowTok{return}\NormalTok{ Find\_A\_Min\_Loc(A[mid}\OperatorTok{+}\DecValTok{1}\NormalTok{:A.length])   }
+\end{Highlighting}
+\end{Shaded}
+
+(2)
+
+定理一:\textbf{一个不同数组成的数组一定存在一个局部最小值}
+
+证明，若不存在局部最小值那么肯定\(a_2<a_1\)，\(a_3\)也一定要比\(a_2\)小，不然\(a_2\)就是局部最小只了，同理下去\(a_2<a_1,a_3<a_2,a_4<a_3,...,a_n<a_{n-1}\),而\(a_n<a_{n-1}\)，就代表\(a_n\)就是局部最小值，因此矛盾
+
+定理二：\textbf{取数组中间的数，如果它不是局部最小值，那么在小于它的邻数那边肯定存在局部最小值。}
+
+证明:和定理一的证明相似若\(a_{mid}>a_{mid+1}\)，若要不存在局部最小值话，就会推出\(a_n>a_{n-1}\)，那就会与\(a_{n-1}\)为局部最小值产生矛盾，因此小于它的邻数那边肯定存在一个局部最小值。
+
+\textbf{有了以上两条推论我们就可以证明算法的正确性了}
+
+初始化:
+
+当A的长度为1时，直接返回唯一元素，为局部最小值；当A的长度为2的时候，返回两个数中更小的那一个，即为局部最小值。
+
+保持:
+
+当A的长度大于3的时候，取数组A的中间元素，然后判断中间元素是否为局部最小值，若是则直接返回中间元素。如果不是，则选取相邻数中小于它的一边。然后再递归求取这一半数组中的局部最小值，根据定理二我们知道肯定有这样一个局部最小值，因为数组A,一定能在Find\emph{A}Min\emph{Loc(A{[}left{]}),A{[}mid{]},Find}A\emph{Min}Loc(A{[}right{]})中找到局部最小值。因此最后便会返回数组A的局部最小值。
+
+结束
+
+当递归返回到父节点后算法结束，返回数组A的局部最小值。
+
+(3)
+
+\(O(T_n)=O(T_{\frac{n}{2}})+C\)，所以时间复杂度为\(O(logn)\)
+
+\hypertarget{header-n72}{%
+\subparagraph{(b)}\label{header-n72}}
+
+(1)
+
+伪代码
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{1.}\NormalTok{ GET\_MIN\_LOC(A,i,j,direct)}
+\FloatTok{2.}\NormalTok{ 	min\_x,min\_y = FIND\_MIN\_LINE(A,i,j,direct)}
+\FloatTok{3.} 	\ControlFlowTok{if}\NormalTok{ direct == }\DecValTok{0} \CommentTok{//横线}
+\FloatTok{4.}		\ControlFlowTok{if}\NormalTok{ A[min\_x][min\_y] \textless{} (min\_x{-}}\DecValTok{1}\NormalTok{ \textless{} }\DecValTok{0}\NormalTok{) ? MAX\_VALUE : A[min\_x{-}}\DecValTok{1}\NormalTok{][min\_y] and A[min\_x][min\_y] \textless{} (min\_x+}\DecValTok{1}\NormalTok{ \textgreater{}= 	                       }\FloatTok{5.}\NormalTok{			  A.length{-}}\DecValTok{1}\NormalTok{) ? MAX\_VALUE : A[min\_x+}\DecValTok{1}\NormalTok{][min\_y]}
+\FloatTok{6.} 			\ControlFlowTok{return}\NormalTok{ A[min\_x][min\_y]}
+\FloatTok{7.} 		\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ min\_x+}\DecValTok{1}\NormalTok{ \textgreater{}= A.length or A[min\_x{-}}\DecValTok{1}\NormalTok{][min\_y] \textless{} A[min\_x+}\DecValTok{1}\NormalTok{][min\_y]}
+\FloatTok{8.} 			\ControlFlowTok{return}\NormalTok{ GET\_MIN\_LOC(A[}\DecValTok{0}\NormalTok{:min\_x,}\DecValTok{0}\NormalTok{:{-}}\DecValTok{1}\NormalTok{],min\_x,min\_y,(direct+}\DecValTok{1}\NormalTok{)\%}\DecValTok{2}\NormalTok{)}
+\FloatTok{9.} 		\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ min\_x{-}}\DecValTok{1}\NormalTok{ \textless{} }\DecValTok{0}\NormalTok{ or A[min\_x+}\DecValTok{1}\NormalTok{][min\_y] \textless{} A[min\_x{-}}\DecValTok{1}\NormalTok{][min\_y]}
+\FloatTok{10.}			\ControlFlowTok{return}\NormalTok{ GET\_MIN\_LOC(A[min\_x:{-}}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{:{-}}\DecValTok{1}\NormalTok{],min\_x,min\_y,(direct+}\DecValTok{1}\NormalTok{)\%}\DecValTok{2}\NormalTok{)}
+\FloatTok{11.}	\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ direct == }\DecValTok{1} \CommentTok{//竖线}
+\FloatTok{12.}		\ControlFlowTok{if}\NormalTok{ A[min\_x][min\_y] \textless{} (min\_y{-}}\DecValTok{1}\NormalTok{ \textless{} }\DecValTok{0}\NormalTok{) ? MAX\_VALUE : A[min\_x][min\_y{-}}\DecValTok{1}\NormalTok{] and A[min\_x][min\_y] \textless{} (min\_y+}\DecValTok{1}\NormalTok{ \textgreater{}       }\FloatTok{13.}\NormalTok{				 A[}\DecValTok{0}\NormalTok{].length{-}}\DecValTok{1}\NormalTok{) ? MAX\_VALUE : A[min\_x][min\_y+}\DecValTok{1}\NormalTok{]}
+\FloatTok{14.}			\ControlFlowTok{return}\NormalTok{ A[min\_x][min\_y]}
+\FloatTok{15.}		\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ min\_y+}\DecValTok{1}\NormalTok{ \textgreater{}= A[}\DecValTok{0}\NormalTok{].length or A[min\_x][min\_y{-}}\DecValTok{1}\NormalTok{] \textless{} A[min\_x][min\_y+}\DecValTok{1}\NormalTok{]}
+\FloatTok{16.}			\ControlFlowTok{return}\NormalTok{ GET\_MIN\_LOC(A[}\DecValTok{0}\NormalTok{:{-}}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{:min\_y],min\_x,min\_y,(direct+}\DecValTok{1}\NormalTok{)\%}\DecValTok{2}\NormalTok{)}
+\FloatTok{17.}		\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ min\_y{-}}\DecValTok{1}\NormalTok{ \textless{} }\DecValTok{0}\NormalTok{ or A[min\_x][min\_y+}\DecValTok{1}\NormalTok{] \textless{} A[min\_x][min\_y{-}}\DecValTok{1}\NormalTok{]}
+\FloatTok{18.}			\ControlFlowTok{return}\NormalTok{ GET\_MIN\_LOC(A[}\DecValTok{0}\NormalTok{:{-}}\DecValTok{1}\NormalTok{,min\_y:{-}}\DecValTok{1}\NormalTok{],min\_x,min\_y,(direct+}\DecValTok{1}\NormalTok{)\%}\DecValTok{2}\NormalTok{)}
+
+\FloatTok{1.}\NormalTok{ FIND\_MIN\_LINE(A,i,j,direct)}
+\FloatTok{2.} 	\ControlFlowTok{if}\NormalTok{ direct == }\DecValTok{0} \CommentTok{//横线}
+\FloatTok{3.} 		\DataTypeTok{int}\NormalTok{ min\_j = }\DecValTok{0}
+\FloatTok{4.} 		\ControlFlowTok{for}\NormalTok{ k = }\DecValTok{1}\NormalTok{ to A[}\DecValTok{0}\NormalTok{].length{-}}\DecValTok{1}
+\FloatTok{5.} 			\ControlFlowTok{if}\NormalTok{ A[i][k] \textless{} A[i][min\_j]}
+\FloatTok{6.}\NormalTok{ 				min\_j = k}
+\FloatTok{7.} 		\ControlFlowTok{return}\NormalTok{ i,min\_j}
+\FloatTok{8.} 	\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ direct == }\DecValTok{1} \CommentTok{//竖线}
+\FloatTok{9.} 		\DataTypeTok{int}\NormalTok{ min\_i = }\DecValTok{0}
+\FloatTok{10.}		\ControlFlowTok{for}\NormalTok{ k = }\DecValTok{1}\NormalTok{ to A.length{-}}\DecValTok{1}
+\FloatTok{11.}			\ControlFlowTok{if}\NormalTok{ A[k][j] \textless{} A[min\_i][j]}
+\FloatTok{12.}\NormalTok{				min\_i = k}
+\FloatTok{13.}		\ControlFlowTok{return}\NormalTok{ min\_i,j}
+\end{Highlighting}
+\end{Shaded}
+
+(2)
+
+算法思路:
+
+\begin{quote}
+先在正中间画一条横线,找到横线上最小的位置a。如果这个位置上下两个位置的数(\(a_1,a_2\))都比它大，那么它是局部最小。\\
+否则上下至少有一个比这个位置小。把较大的那个数所在的半个矩阵舍弃，因为从a开始按贪心找局部最小值不会离开没被舍弃的半个矩阵。接着画一条n/2长度的竖线，又把矩阵分成了两半。找到横线加竖线合起来最小的位置。用同样的方式把最小不在的半个矩阵舍弃。最后直到找到局部最小值为止。
+\end{quote}
+
+(3)
+
+每两次画的线长度会减半，画的线总长度是\(O(n)\)
+
+因为每次矩阵切分的时候都会平均减去n/2的矩阵大小，所有搜索的元素大概是\(n+n/2+n/4+n/8+...=2n=O(n)\)
+
+\hypertarget{header-n84}{%
+\paragraph{5 Probability refresher}\label{header-n84}}
+
+\hypertarget{header-n85}{%
+\subparagraph{(a)}\label{header-n85}}
+
+\(C_n^0+C_n^1+C_n^2+...+C_n^n = 2^n\)
+
+\begin{quote}
+\{1,2,...,n\}的所有子集中包含0个元素的个数为为\(C_n^0\)，包含一个元素的为\(C_n^1\)，...包含n个元素的为\(C_n^n\),它们加起来总共就有\(2^n\)个.
+\end{quote}
+
+\hypertarget{header-n89}{%
+\subparagraph{(b)}\label{header-n89}}
+
+\(\sum_{i=0}^{n}i*\frac{C_n^i}{2^n}=\frac{n}{2}\)
+
+\hypertarget{header-n91}{%
+\subparagraph{(c)}\label{header-n91}}
+
+得出的范围是\((logk,nlogk)\)
+
+平均分布的期望是\(\frac{a+b}{2}\),方差是\(\frac{(b-a)^2}{12}\)
+
+所以expected
+value是\(\frac{(n+1)logk}{2}\),variance是(\(\frac{(nlogk-logk)^2}{12}\))
+
+\hypertarget{header-n96}{%
+\paragraph{6 Fun with Big-O notation}\label{header-n96}}
+
+\hypertarget{header-n97}{%
+\subparagraph{\texorpdfstring{\((a)n=O(nlog(n))\)}{(a)n=O(nlog(n))}}\label{header-n97}}
+
+答:设当\(n>=n_0\)时，存在\(c_2\)，使\(n<=c_2*nlogn\)
+
+\(\Rightarrow 1<=c_2*logn\)
+
+\(\Rightarrow c_2>=\frac{1}{logn}\)
+
+则取\(c_2=1,n_0=2\)，则当\(n>=2\)时，\(c_2>=\frac{1}{logn}\)始终成立
+
+故\(n=O(nlog(n))\)为真
+
+\((b)n^{1/logn}=\Theta(1)\)
+
+答:设\(logn=k=>n=2^k\)，
+
+则\(n^{1/logn}=(2^{k})^{\frac{1}{k}}=2\)
+
+所以令\(c_1=1,c_2=3,n_0=1\)，当\(n>=n_0\)时，恒有\(c_1*1<=n^{1/logn}<=c_2*1\)，故\(n^{1/logn}=\Theta(1)\)为真
+
+\((c)if\)
+
+\[f(n)=\begin{cases}
+5^n & n<2^{1000} \\
+2^{1000}n^2 & n>=2^{1000}
+\end{cases}\]
+
+\(and \ g(n)=\frac{n^2}{2^{1000}},then f(n)=O(g(n))\)
+
+答:设当\(n\geq  n_0\)时，存在\(c_2\)使
+
+\(f(n)<=c_2*g(n)\)
+
+\(\Rightarrow f(n)\leq c_2*\frac{n^2}{2^{1000}}\)
+
+\(\Rightarrow c_2\geq\frac{2^{1000}}{n^2}*f(n)\)
+
+则当\(n_0=2^{1000}\)时，
+
+\(c_2\geq\frac{2^{1000}}{n^2}*2^{1000}*n^2\)
+
+\(\Rightarrow c_2\geq 2^{2000}\)
+
+所以当\(c_2=2^{2000},n_0=2^{1000}\)时，恒有\(f(n)\leq c_2*g(n),故f(n)=O(g(n))\)成立
+
+\((d)\) For all posible fucntions \(f(n),g(n)\geq 0\),if
+\(f(n)=O(g(n))\),then \(2^{f(n)}=O(2^{g(n)})\)
+
+答:由\(f(n)=O(g(n))=>存在n_1,c_1\)，当\(n\geq n_1\)时，恒有\(f(n)\leq c_1*g(n)\)
+
+反证法，假设存在\(n_2,c_2\)使得，当\(n\geq n_2\)时，\(2^{f(n)}=O(2^{g(n)})=>2^{f(n)}\leq c_2*2^{g(n)}\)恒成立。
+
+由当\(n\geq  n_1\)时，\(f(n)\leq  c_1*g(n)\)，则\(2^{f(n)}\leq2^{c_1*g(n)}\leq c_2*2^{g(n)}=>c_2\geq 2^{(c_1-1)g(n)}\)。如果\(g(n)\)为增函数，那么当\(n->∞,c_1>1\)时，\(2^{(c_1-1)g(n)}->+∞\)，而\(c_2\)是一个常数，所以不可能。故为假
+
+\((e)5^{loglog(n)}=O(log(n)^2)\)
+
+答:假设当\(n\geq n_0\)时存在\(c_2\)，恒有\(5^{loglogn}\leq c_2logn*logn\)
+
+\(\Rightarrow lognlon\leq log_5^{c_2}+log_5^{logn}+log_5^{logn}\)
+
+\(\Rightarrow log_2^{logn}-2log_5^{logn}\leq log_5^{c_2}\)
+
+\(\Rightarrow log_2^{logn}-log_{\sqrt{5}}^{logn}\leq log_5^{c_2}\)
+
+\(\Rightarrow c_2\geq 5^{log_2^{logn}-log_{\sqrt{5}}^{logn}}\)
+
+由于\(log_{2}^{logn}-log_{\sqrt{5}}^{logn}\)是增函数，所以当\(n->+∞\)时，\(c_2\geq+∞\)，因为\(c_2\)是常数，所以肯定不可能。
+
+所以\(5^{loglog(n)}=O(log(n)^2\)为假
+
+\((f)n=\Theta(100^{log(n)})\)
+
+答:假设存在\(n_0,c_1,c_2\)，当\(n\geq n_0\)时，恒有\(c_1*100^{logn}\leq n\leq c_2*100^{logn}\)
+
+\(\Rightarrow c_1\leq\frac{n}{100^{logn}}\leq c_2\)
+
+令\(logn=k\Rightarrow n=2^k\)
+
+\(\Rightarrow c_1\leq \frac{2^k}{100^k}\leq c_2\)
+
+\(\Rightarrow c_1\leq(\frac{1}{50})^k\leq c_2\)
+
+当\(n\rightarrow+∞\)的时候，k\(\rightarrow∞ \Rightarrow (\frac{1}{50})^k\rightarrow0\)，因为\(c_1\)是一个正常数，所以肯定不可能
+
+所以
+
+\(n=\Theta(100^{log(n)})\)为假
+
+\hypertarget{header-n147}{%
+\paragraph{\texorpdfstring{7 \textbf{Fun with
+recurrences.}}{7 Fun with recurrences.}}\label{header-n147}}
+
+(a)
+
+\(T(n)=2T(n/2)+3n\)
+
+因为a=2,b=2,d=1
+
+所以\(a=b^d\)
+
+故\(O(T)=O(nlogn)\)
+
+(b)
+
+\(T(n)=3T(n/4)+\sqrt{n}\)
+
+因为\(a=3,b=4,d=\frac{1}{2}\)
+
+所以\(a>b^d\)
+
+故\(O(T)=O(n^{log_4^3})\)
+
+(c)
+
+\(T(n)=7T(n/2)+\Theta(n^3)\)
+
+因为\(a=7,b=2,d=3\)
+
+所以\(a<b^d\)
+
+故\(O(T)=O(n^3)\)
+
+(d)
+
+\(T(n)=4T(n/2)+n^2logn\)
+
+因为\(a=4,b=2\)且\(f(n)=\Omega(n^{log_2^4})\)
+
+且\(4f(n/2)\leq cf(n)\)
+
+\(\Rightarrow4*\frac{n^2}{4}log\frac{n}{2}\leq cn^2logn\)
+
+\(\Rightarrow log\frac{n}{2}\leq clogn\)
+
+当\(c=1,n\rightarrow ∞\)的时候恒成立
+
+所以\(O(T)=O(n^2logn)\)
+
+(e)
+
+\(T(n)=2T(n/3)+n^{c}\)
+
+因为a=2,b=3,d=c
+
+1.当\(2=3^c\Rightarrow c=log_3^2\)
+
+\(O(T)=O(n^{log_3^2}log(n))\)
+
+2.当\(2<3^c\Rightarrow c>log_3^2\)时
+
+\(O(T)=O(n^{log_3^2})\)
+
+3.当\(2 > 3^c\Rightarrow c<log_3^2\)时
+
+\(O(T)=O(n^{log_3^2})\)
+
+\((f)\)
+
+\(T(n)=2T(\sqrt{n})+1,where\ T(2)=1\)
+
+\(\Rightarrow T(n)=2T(n^{\frac{1}{2}})+1\)
+
+\(\Rightarrow n^{\frac{1}{2k}}=2\)
+
+\(\Rightarrow k=log_{2}^{\sqrt{n}}\)
+
+经过k次递归后，达到叶子节点T(2)
+
+则总的时间复杂度为\(O(1+2+4+8+...2^{k})=O(\sqrt{n}-1)\)
+
+\end{document}
